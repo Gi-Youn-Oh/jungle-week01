@@ -12,7 +12,7 @@ n = int(input())
 
 if n > 20:
     print(2**n - 1)
-    # here_to_there(n, 1, 3, False)
+    # here_to_there(n, 1, 3, False)dfdf
 else:
     print(2**n - 1)
     here_to_there(n, 1, 3, True)
