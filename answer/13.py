@@ -12,3 +12,4 @@ for _ in range(n):
 #f-string 이외에도 2가지 방법 더있음
 #python index [0:4] 해당 index 의 첫번째 부터 3번째까지
 #index[0:]끝지점 지정안하면 끝까지 / index[:3] index의 [0]~[2]
+
