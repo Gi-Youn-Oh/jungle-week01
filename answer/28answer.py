@@ -1,11 +1,11 @@
-def hanoi(n, start, destination, other) :
+def hanoi(n, start, other, destination) :
     if n==1:
         print(start, destination, sep= " ")
         return
     else:
         hanoi(n-1,start, destination, other)
         hanoi(1, start, other, destination)
-        hanoi(n-1, other, destination, start)
+        hanoi(n-1, other, start, destination)
 
 n= int(input())
 print(2**n-1)
