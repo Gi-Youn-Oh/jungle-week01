@@ -53,3 +53,22 @@
 #             last_idx += 1 # last_idx 인덱스 갱신
 #     print(max_sum, linked_li)
 
+
+
+
+# 리스트 전역변수, 지역변수 개념
+# li = [0,1,2,3]
+
+# def func():
+#     li = [1]
+#     li[0] = 2
+#     print('in func',li)
+
+# func()
+# print(li)
+
+
+s1 = set([1,2,3])
+print(len(s1))
+s2 = set()
+print(s1,s2)
