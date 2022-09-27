@@ -24,7 +24,7 @@ for i in range(len(column) -1): # 0 1 2
 
 print(max(subtracted_r) * max(subtracted_c))
 
-row = [0, r]
-column = [0, c]
-로 받는 것
-(x,y축처럼 생각해주기)
+# row = [0, r]
+# column = [0, c]
+# 로 받는 것
+# (x,y축처럼 생각해주기)
