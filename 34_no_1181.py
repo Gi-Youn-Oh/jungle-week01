@@ -1,45 +1,56 @@
 import sys
 
-def return_dic_ord_2str(str1,str2):
+def dic_1st_btwn2(str1, str2) -> bool:
     # 사전순 첫번째 문자열 반환
     for i in range(len(str1)):
         if (ord(str1[i]) < ord(str2[i])):
-            return str1
+            return True
+        elif(ord(str1[i]) == ord(str2[i])):
+            continue
         else:
-            return str2
+            return False
 
 N = int(sys.stdin.readline().split()[0])
 
 strs = []
-lens_num = [0]*50
+lens = [0]*51
 
 for _ in range(N):
     str_in = sys.stdin.readline().split()[0]
-    length = len(str_in)
+    len_in = len(str_in)
+
+    # 중복 제거
     if str_in in strs:
         continue
     
-    if len(strs) == 0:
-        strs.append(str_in)
-        continue
+    len_under = 0
+    len_same = 0
+    for i in range(len_in):
+        len_under += lens[i]
+    len_same = len_under + lens[len_in]
 
-    cnt_under_length_str_num = 0
-    cnt_andunder_length_str_num = 0
-    for i in range(length):
-        cnt_under_length_str_num += lens_num[i]
-    for i in range(length+1):
-        cnt_andunder_length_str_num += lens_num[i]
-    
-    for i in range(cnt_under_length_str_num,cnt_andunder_length_str_num+1):
-        if strs[i] == return_dic_ord_2str(strs[i],str_in):
-            continue
-        else:
+# len_in  3
+# under   [1,2,3,4] > 4
+# str len [1,1,2,2,3,3,3,3,4,4,5]
+# str idx [0,1,2,3,4,5,6,7,8,9,10]
+# same    [1,2,3,4,5,6,7,8] > 8
+    for i in range(len_under, len_same):
+        if not dic_1st_btwn2(strs[i], str_in):
             strs.insert(i, str_in)
             break
     else:
-        strs.insert(cnt_andunder_length_str_num,str_in)
+        strs.insert(len_same, str_in)
+    # print(f'{len_under:2}{len_same:2} - {strs} ', end='')
+    # i=0
+    # lens[len_in] += 1
+    # while True:
+    #     print(f'{lens[i]:3}', end='')
+    #     i += 1
+    #     if i == N:
+    #         break
+    # print()
 
-    lens_num[length] += 1
+
 for i in range(len(strs)):
     print(strs[i])
 
